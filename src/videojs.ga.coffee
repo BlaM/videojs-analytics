@@ -123,6 +123,12 @@ videojs.plugin 'ga', (options = {}) ->
       _gaq.push(['_trackEvent', eventCategory, action, eventLabel, value, nonInteraction])
     else if options.debug
       console.log("Google Analytics not detected")
+
+    if window._paq
+      _paq.push(['trackEvent', eventCategory, action, eventLabel, value])
+    else if options.debug
+      console.log("Piwik not detected")
+
     return
 
   @ready ->

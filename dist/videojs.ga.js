@@ -1,5 +1,5 @@
 /*
-* videojs-ga - v0.4.2 - 2015-02-06
+* videojs-ga - v0.4.2 - 2015-09-14
 * Copyright (c) 2015 Michael Bensoussan
 * Licensed MIT
 */
@@ -114,6 +114,11 @@
         _gaq.push(['_trackEvent', eventCategory, action, eventLabel, value, nonInteraction]);
       } else if (options.debug) {
         console.log("Google Analytics not detected");
+      }
+      if (window._paq) {
+        _paq.push(['trackEvent', eventCategory, action, eventLabel, value]);
+      } else if (options.debug) {
+        console.log("Piwik not detected");
       }
     };
     this.ready(function() {
