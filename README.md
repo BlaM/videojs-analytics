@@ -1,9 +1,9 @@
-# videojs-ga
+# videojs-analytics
 
-Google Analytics plugin for video.js
+Google and Piwik Analytics plugin for video.js
 
 ## Getting Started
-Download [videojs](http://www.videojs.com/) and [videojs.ga](https://github.com/mickey/videojs-ga)
+Download [videojs](http://www.videojs.com/) and [videojs-analytics](https://github.com/azine/videojs-analytics)
 
 In your web page:
 ```html
@@ -17,7 +17,7 @@ videojs('video', {}, function() {
 </script>
 ```
 
-_Please note that the Google Analytics script must be loaded before the ga plugin_
+_Please note that the Google Analytics and/or Piwik script must be loaded before the ga plugin_
 
 ## Options
 
@@ -70,12 +70,16 @@ This options goes with the ```percentsPlayed``` event. Every ```percentsPlayedIn
 If set to false, console logs will be ommited
 **default:** ```false```
 
-#### ga.js and analytics.js
+#### ga.js, analytics.js and piwik.js
 
-This plugin supports the ga.js and the newer analytics.js Google Analytics libraries. It autodetects the library you use.
+This plugin supports the ga.js and the newer analytics.js Google Analytics libraries. It also supports piwik.js.
+It autodetects the library you use and if both GoogleAnalytics and Piwik is used by your site, it will log to both systems.
 
 
 ## TODO
 
 - [x] track the engine used (html5/flash) along with the source (ogg, mp4, ...)
 - [ ] track the time to download the video
+- [ ] refactor source-code, docs and tests to replace references to "GA" with a more general term that makes sense for GoogleAnalytics and for Piwik.
+
+
